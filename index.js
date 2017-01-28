@@ -2,7 +2,6 @@
 
 const Hapi = require('hapi')
 const server = new Hapi.Server()
-const dbOpts = require('./dbOpts')
 
 server.connection({
   host: 'localhost',
@@ -11,12 +10,14 @@ server.connection({
 
 server.register({
   register: require('hapi-mongodb'),
-  options: dbOpts
+  options: require('./dbOpts')
 }, (err) => {
   if (err) {
     console.error(err)
     throw err
   }
+
+  server.route(require('./routes'))
 
   server.start(() => {
     console.log('Serving on:', server.info.uri)
