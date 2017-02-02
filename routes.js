@@ -11,7 +11,6 @@ module.exports = [{
         console.error(err)
         throw err
       }
-      console.log(result)
       reply(result)
     })
   }
