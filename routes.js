@@ -20,4 +20,13 @@ module.exports = [{
   method: 'GET',
   path: '/api/books/{id}',
   handler: Books.findOne
+}, {
+  method: 'PUT',
+  path: '/api/books/{id}',
+  handler: Books.update,
+  config: {
+    validate: {
+      payload: bookSchema
+    }
+  }
 }]

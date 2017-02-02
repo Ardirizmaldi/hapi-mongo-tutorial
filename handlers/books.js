@@ -34,3 +34,15 @@ exports.findOne = function (request, reply) {
     reply(result)
   })
 }
+
+exports.update = function (request, reply) {
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+
+  db.collection('books').findOneAndReplace({ _id: new ObjectID(request.params.id) }, request.payload, (err, result) => {
+    if (err) {
+      throw err
+    }
+    reply('OK')
+  })
+}
