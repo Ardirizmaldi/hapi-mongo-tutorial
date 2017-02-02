@@ -16,4 +16,8 @@ module.exports = [{
       payload: bookSchema
     }
   }
+}, {
+  method: 'GET',
+  path: '/api/books/{id}',
+  handler: Books.findOne
 }]

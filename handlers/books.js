@@ -21,3 +21,16 @@ exports.create = function (request, reply) {
     reply('OK')
   })
 }
+
+exports.findOne = function (request, reply) {
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+
+  db.collection('books').findOne({ _id: new ObjectID(request.params.id) }, (err, result) => {
+    if (err) {
+      throw err
+    }
+
+    reply(result)
+  })
+}
