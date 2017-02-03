@@ -29,4 +29,8 @@ module.exports = [{
       payload: bookSchema
     }
   }
+}, {
+  method: 'DELETE',
+  path: '/api/books/{id}',
+  handler: Books.remove
 }]
