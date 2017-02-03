@@ -3,7 +3,7 @@ const server = new Hapi.Server()
 
 server.connection({
   host: 'localhost',
-  port: 4000
+  port: 8080
 })
 
 server.start(() => {
